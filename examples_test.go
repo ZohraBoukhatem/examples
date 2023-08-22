@@ -44,6 +44,33 @@ func TestPalindromeSlice(t *testing.T) {
 	}
 }
 
+func TestSumofSlice(t *testing.T) {
+	var numbers []int = []int{1, 2, 8, 9}
+	var result int
+	for i := 0; i < len(numbers); i++ {
+		result += numbers[i]
+		t.Log(result)
+	}
+
+	const test_sum int = 20
+	if result != test_sum {
+		t.Errorf("result %v doesn't match the expected %v", result, test_sum)
+	}
+}
+func TestSumofPositiveNumbersinSlice(t *testing.T) {
+	var numbers []int = []int{1, -2, 8, -9, 5, -6}
+	var result int
+	for i := 0; i < len(numbers); i++ {
+		if numbers[i] > 0 {
+			result += numbers[i]
+		}
+	}
+	const test_sum int = 14
+	if result != test_sum {
+		t.Errorf("result %v doesn't match the expected %v", result, test_sum)
+	}
+}
+
 func TestAppend(t *testing.T) {
 	var structure structure
 	structure.Append(6)

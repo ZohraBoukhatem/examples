@@ -11,6 +11,39 @@ func TestPrintHelloWorld(t *testing.T) {
 	}
 }
 
+func TestPalindromeString(t *testing.T) {
+	const word string = "radar"
+	var palindrome bool
+	palindrome = true
+	for i := 0; i < len(word)/2; i++ {
+		i_reverse := len(word) - i - 1
+		if word[i] != word[i_reverse] {
+			palindrome = false
+			break
+		}
+	}
+	if palindrome != true {
+		t.Errorf("%v isn't a palindrome because it doesn't read the same backwards as forwards", word)
+	}
+}
+
+func TestPalindromeSlice(t *testing.T) {
+	var word []string = []string{"m", "a", "d", "a", "m"}
+	var polindrome bool
+
+	polindrome = true
+	for i := 0; i < len(word)/2; i++ {
+		i_reverse := len(word) - i - 1
+		if word[i] != word[i_reverse] {
+			polindrome = false
+			break
+		}
+	}
+	if polindrome != true {
+		t.Errorf("%v isn't a palindrome because it doesn't read the same backwards as forwards", word)
+	}
+}
+
 func TestAppend(t *testing.T) {
 	var structure structure
 	structure.Append(6)
